@@ -47,7 +47,7 @@ export class OrderServiceBase {
     return this.prisma.order.delete(args);
   }
 
-  async getCustomer(parentId: string): Promise<Customer | null> {
+  async getCustomer(parentId: number): Promise<Customer | null> {
     return this.prisma.order
       .findUnique({
         where: { id: parentId },
@@ -55,7 +55,7 @@ export class OrderServiceBase {
       .customer();
   }
 
-  async getProduct(parentId: string): Promise<Product | null> {
+  async getProduct(parentId: number): Promise<Product | null> {
     return this.prisma.order
       .findUnique({
         where: { id: parentId },
